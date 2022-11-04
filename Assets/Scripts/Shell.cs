@@ -5,16 +5,20 @@ using UnityEngine;
 public class Shell : MonoBehaviour
 {
     public GameObject explosion;
-    float mass = 10;
+    Rigidbody rb;
+    /*float mass = 10;
     float force = 200;
     float acceleration;
     float gravity = -9.8f;
     float gAccel;
 
     float speedZ;
-    float speedY;
+    float speedY;*/
 
-
+    void Start()
+    {
+        GetComponent<Rigidbody>();
+    }
 
     void OnCollisionEnter(Collision col)
     {
@@ -29,12 +33,14 @@ public class Shell : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        acceleration = force / mass;
+        /*acceleration = force / mass;
         speedZ += acceleration * Time.deltaTime;
         gAccel = gravity / mass;
         speedY += gAccel * Time.deltaTime;
         this.transform.Translate(0, speedY, speedZ);
 
-        force -= 0;
+        force -= 0;*/
+        this.transform.forward = rb.velocity;
+
     }
 }
