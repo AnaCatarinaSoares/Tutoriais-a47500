@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class AIController : MonoBehaviour
-{
+public class AIController : MonoBehaviour {
+
+    // Agents destination
     public GameObject goal;
-    UnityEngine.AI.NavMeshAgent agent;
-    
+    // Get the prefab
+    NavMeshAgent agent;
+
     // Start is called before the first frame update
-    void Start()
-    {
-        agent = this.GetComponent<UnityEngine.AI.NavMeshAgent>();
+    void Start() {
+        // Access the agents NavMesh
+        agent = this.GetComponent<NavMeshAgent>();
+        // Instruct the agent where it has to go
         agent.SetDestination(goal.transform.position);
     }
-
 }
